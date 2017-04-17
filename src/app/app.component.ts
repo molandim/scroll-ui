@@ -11,4 +11,8 @@ export class AppComponent {
   constructor(){
     console.log('hello');
   }
+
+  saySomething(){
+    console.log('someting has happened');
+  }
 }
