@@ -12,7 +12,10 @@ export class ScrollUiDirective implements OnInit {
   private isOnScreen:Boolean;
   
   @Output()
-  screenStatusChange = new EventEmitter();
+  onScreenEnter = new EventEmitter();
+
+  @Output()
+  onScreenLeave = new EventEmitter();
    
   constructor(@Inject(DOCUMENT) private document: any, private el:ElementRef, @Inject('windowObject') private window:Window) {
    }
@@ -30,12 +33,16 @@ export class ScrollUiDirective implements OnInit {
     return (this.clientRectangle.top < this.window.innerHeight && this.clientRectangle.bottom > 0);
   }
 
+  emitEvents():void{
+    this.isOnScreen?this.onScreenEnter.emit():this.onScreenLeave.emit();
+  }
+
   @HostListener('window:scroll', [])
   onWindowScroll(){
     this.updateElementArea();
     if(this.checkElementIsOnScreen() !== this.isOnScreen){
       this.isOnScreen = this.checkElementIsOnScreen();
-      this.screenStatusChange.emit();
+      this.emitEvents();
     }
   }
 }

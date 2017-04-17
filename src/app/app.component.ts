@@ -12,7 +12,11 @@ export class AppComponent {
     console.log('hello');
   }
 
-  saySomething(){
-    console.log('someting has happened');
+  elementEntered(){
+    console.log('element has appeared');
+  }
+
+  elementLeft(){
+    console.log('element has left');
   }
 }
