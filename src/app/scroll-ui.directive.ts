@@ -1,15 +1,14 @@
-import { Directive, EventEmitter, HostListener, Inject, ElementRef, OnInit, Output } from '@angular/core';
-import {DOCUMENT} from "@angular/platform-browser";
+import { Directive, EventEmitter, HostListener, Inject, ElementRef, AfterViewInit, Output } from '@angular/core';
 import {ClientRectangle} from "./clientRectangle";
 //import {WindowProvider} from './window-provider.service';
 
 @Directive({
   selector: '[scroll-ui]'
 })
-export class ScrollUiDirective implements OnInit {
+export class ScrollUiDirective implements AfterViewInit {
 
-  private clientRectangle:ClientRectangle; 
-  private isOnScreen:Boolean;
+  protected clientRectangle:ClientRectangle; 
+  protected isOnScreen:Boolean;
   
   @Output()
   onScreenEnter = new EventEmitter();
@@ -17,10 +16,10 @@ export class ScrollUiDirective implements OnInit {
   @Output()
   onScreenLeave = new EventEmitter();
    
-  constructor(@Inject(DOCUMENT) private document: any, private el:ElementRef, @Inject('windowObject') private window:Window) {
+  constructor(protected el:ElementRef, @Inject('windowObject') private window:Window) {
    }
 
-   ngOnInit():any{
+   ngAfterViewInit():any{
     this.updateElementArea();
     this.isOnScreen = this.checkElementIsOnScreen();
    }
