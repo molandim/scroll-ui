@@ -12,6 +12,7 @@ import { ScrollParallaxBgDirective } from './scroll-parallax-bg.directive';
 import { ScrollParallaxFieldDirective } from './scroll-parallax-field.directive';*/
 import { ScrollUiDirective } from './scroll-ui.directive';
 import { ScrollUiFadeDirective} from './scroll-ui-fade.directive';
+import { ScrollUiListenerBaseDirective } from './scroll-ui-listener-base.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ScrollUiFadeDirective} from './scroll-ui-fade.directive';
     ScrollParallaxBgDirective,
     ScrollParallaxFieldDirective,*/
     ScrollUiDirective,
-    ScrollUiFadeDirective
+    ScrollUiFadeDirective,
+    ScrollUiListenerBaseDirective
   ],
   imports: [
     BrowserModule,
