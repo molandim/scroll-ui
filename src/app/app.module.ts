@@ -14,6 +14,7 @@ import { ScrollUiDirective } from './scroll-ui.directive';
 import { ScrollUiFadeDirective} from './scroll-ui-fade.directive';
 import { ScrollUiListenerBaseDirective } from './scroll-ui-listener-base.directive';
 import { ScrollUiClassDirective } from './scroll-ui-class.directive';
+import { ScrollUiPositionListenerDirective } from './scroll-ui-position-listener.directive';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ScrollUiClassDirective } from './scroll-ui-class.directive';
     ScrollUiDirective,
     ScrollUiFadeDirective,
     ScrollUiListenerBaseDirective,
-    ScrollUiClassDirective
+    ScrollUiClassDirective,
+    ScrollUiPositionListenerDirective
   ],
   imports: [
     BrowserModule,

@@ -17,7 +17,7 @@ export class ScrollUiClassDirective extends ScrollUiFadeDirective {
   applyInitStyles():void{
     this.el.nativeElement.style.transition = `all ${this.duration}s ${this.easing} ${this.delay}s`;
     if(this.isOnScreen){
-     // this.el.na
+      this.el.nativeElement.className = `${this.className} ${this.originalClass}`;
     }
   }
 
